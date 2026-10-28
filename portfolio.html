@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name – Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef1f6; --surface:#ffffff; --ink:#14213d; --muted:#55627f;
+  --accent:#2f5dff; --accent-ink:#ffffff; --sun:#ffb703; --line:#d3d9e6;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1626; --surface:#18213a; --ink:#eaf0ff; --muted:#9aa8c7;
+    --accent:#7d9bff; --accent-ink:#0f1626; --sun:#ffc93c; --line:#2b3757;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1626; --surface:#18213a; --ink:#eaf0ff; --muted:#9aa8c7;
+  --accent:#7d9bff; --accent-ink:#0f1626; --sun:#ffc93c; --line:#2b3757;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 1.05rem/1.65 "Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+header.nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav strong{font-weight:800}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+
+.hero{padding:88px 0 72px}
+.hero h1{font-weight:800;font-size:clamp(3rem,11vw,8rem);line-height:.92;letter-spacing:-.04em;margin:0 0 28px}
+.hero h1 span{display:block}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero p{max-width:52ch;color:var(--muted);font-size:1.2rem;margin:0 0 32px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{background:var(--sun);border-color:var(--sun);color:#14213d}
+
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.02em;margin:0 0 32px;font-weight:800}
+
+.about{display:grid;grid-template-columns:2fr 1fr;gap:40px}
+.about p{margin:0 0 16px;max-width:62ch}
+.skills{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;list-style:none;margin:0;padding:0}
+.skills li{padding:6px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:.95rem}
+
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.card:nth-child(2){border-radius:36px 14px 14px 14px}
+.card h3{margin:0;font-size:1.3rem}
+.card p{margin:0;color:var(--muted);flex:1}
+.tags{display:flex;gap:8px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.tags span{border-bottom:2px solid var(--sun)}
+.card a{font-weight:600}
+
+.contact p{max-width:52ch;color:var(--muted)}
+.mail{display:inline-block;font-size:clamp(1.4rem,4vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin:8px 0 24px}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+
+@media (max-width:720px){
+  .about{grid-template-columns:1fr}
+  .nav ul{gap:14px}
+  .hero{padding:56px 0 48px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 span{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 span:nth-child(2){animation-delay:.12s}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <strong>JOSHUA LEE</strong>
+    <nav aria-label="Main"><ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <h1><span>I build</span><span class="outline">web apps.</span></h1>
+    <p>I’m a web developer who builds database-driven sites with PHP, MySQL, HTML and CSS. I like clear code and pages that are easy to use.</p>
+    <div class="btns">
+      <a class="btn primary" href="#work">See my work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <section id="about"><div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p>Write two or three sentences here about who you are, what you study or do, and what kind of projects you want to work on.</p>
+      <p>Add one more line about what you’re learning right now.</p>
+    </div>
+    <ul class="skills" aria-label="Skills">
+      <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li><li>Git</li>
+    </ul>
+  </div></section>
+
+  <section id="work"><div class="wrap">
+    <h2>Selected work</h2>
+    <div class="projects">
+      <article class="card">
+        <h3>Student Manager</h3>
+        <p>Add, edit, delete and search student records by name and course.</p>
+        <div class="tags"><span>PHP</span><span>MySQL</span><span>PDO</span></div>
+        <a href="#">View project</a>
+      </article>
+      <article class="card">
+        <h3>Recipe Book</h3>
+        <p>A recipe list with cooking time and servings, built on prepared statements.</p>
+        <div class="tags"><span>PHP</span><span>MySQL</span><span>CRUD</span></div>
+        <a href="#">View project</a>
+      </article>
+      <article class="card">
+        <h3>Your next project</h3>
+        <p>Replace this with a short description of what it does and what you built.</p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <a href="#">View project</a>
+      </article>
+    </div>
+  </div></section>
+
+  <section id="contact"><div class="wrap contact">
+    <h2>Contact</h2>
+    <p>Have a project or an opportunity? Send me an email.</p>
+    <a class="mail" href="mailto:you@example.com">joshualeecisneros@gmail.com</a>
+    <div class="btns">
+      <a class="btn" href="#">GitHub</a>
+      <a class="btn" href="#">LinkedIn</a>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">© 2026 JOSHUA LEE</div></footer>
+</body>
+</html>
